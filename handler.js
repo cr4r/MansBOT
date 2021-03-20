@@ -1,31 +1,3 @@
-const xml2js = require('xml2json');
-const cheerio = require("cheerio");
-const crypto = require('crypto');
-const yts = require("./lib/cmd.js");
-const ytmp3 = require("./lib/ytmp3.js");
-const { decryptMedia } = require('@open-wa/wa-decrypt')
-const fs = require('fs-extra')
-const axios = require('axios')
-const moment = require('moment-timezone')
-const get = require('got')
-const color = require('./lib/color') 
-const tranlstae = require('./lib/translate')
-const { spawn, exec } = require('child_process')
-const nhentai = require('nhentai-js')
-const { API } = require('nhentai-api')
-const { liriklagu, quotemaker, randomNimek, fb, sleep, jadwalTv, ss } = require('./lib/functions')
-const { help, snk, info, donate, readme, listChannel } = require('./lib/help')
-const { stdout } = require('process')
-const nsfw_ = JSON.parse(fs.readFileSync('./lib/NSFW.json'))
-const welkom = JSON.parse(fs.readFileSync('./lib/welcome.json'))
-const { pow,round, log , evaluate, parse, derivative } = require('mathjs')
-const request = require('request');
-const urlencode = require("urlencode");
-const url3 = require('url');
-const { duration } = require('moment-timezone');
-const { isFunction } = require('util');
-const ytmp4 = require('./lib/ytmp4.js');
-moment.tz.setDefault('Asia/Jakarta').locale('id')
 let util = require('util')
 let simple = require('./lib/simple')
 
@@ -94,8 +66,11 @@ module.exports = {
 
       let isROwner = [global.conn.user.jid, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
       let isOwner = isROwner || m.fromMe
+      let isOwner1 = isROwner1 || m.fromMe
       let isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+      let isMods = isOwner1 || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
       let isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+      let isPrems = isROwner1 || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
       let groupMetadata = m.isGroup ? await this.groupMetadata(m.chat) : {}
       let participants = m.isGroup ? groupMetadata.participants : []
       let user = m.isGroup ? participants.find(u => u.jid == m.sender) : {} // User Data
@@ -339,6 +314,7 @@ global.dfail = (type, m, conn) => {
   }[type]
   if (msg) return m.reply(msg)
 }
+  break
 case 'sudo':
             if (!isOwner) return
             if (args.length === 1) return client.reply(from,`Ketik\sudo  namaTools`,id)
