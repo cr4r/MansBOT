@@ -1,4 +1,13 @@
-# wabot-aq
+<p align="center">
+<img src="https://k.top4top.io/p_1905fbjsg2.jpg" alt="GIF" width="128" height="128"/>
+</p>
+<p align="center">
+<a href="#"><img title="PATRICKDARKSEC BOT" src="https://j.top4top.io/p_1905ofo171.jpg?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
+</p>
+
+# BOT-WHATSAPP
+# PATRICKDARKSEC-Q X MANSDARKSEC-Q
+
 Simple WhatsApp Bot
 
 ### FOR TERMUX USER
